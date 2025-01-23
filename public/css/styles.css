@@ -60,7 +60,7 @@ nav ul li {
   text-align: center;
 }
 
-nav ul li {
+nav ul li a{
   display: block; /* To make the link fill the container */
   text-decoration: none; 
   color: white;
@@ -285,6 +285,56 @@ color: rgba(41, 19, 121, 0.9);
   #wrapper, #top-header, nav{
     max-width: 90%;
     margin-left: 4rem;
+  }
+
+  #inv-display {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* Defines 3 equal-width columns */
+    gap: 2rem; 
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+  }
+
+  #inv-display li {
+    display: flex;  /* Enables Flexbox */
+    flex-direction: column;  /* Stacks the image and text vertically */
+    justify-content: center;  /* Centers the content vertically */
+    align-items: center;  /* Centers the content horizontally */
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  #inv-display li:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+
+  .namePrice {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .namePrice h2 {
+    font-size: 1.2rem;
+    margin: 8px 0;
+  }
+
+  .namePrice span {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  #inv-display li hr {
+    width: 90%;  /* Adjust the width of the line */
+    margin: 8px auto;  /* Adds space above and below the line and center it */
+    border: 1.2px solid black;  
+  }
+
+#inv-display a {
+    color: rgba(19, 121, 19, 0.9);
   }
 
   footer {

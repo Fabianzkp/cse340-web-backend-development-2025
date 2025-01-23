@@ -1,0 +1,11 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<!-- This will allow any messages that have been set to be displayed. -->
+<%# messages() %>
+
+<!-- This code block is the main content delivery mechanism for the view. -->
+<%- grid %>

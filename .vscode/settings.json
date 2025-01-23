@@ -10,7 +10,7 @@
             "server": "localhost",
             "driver": "PostgreSQL",
             "name": "Render.com",
-            "connectString": "postgresql://cse340for2025:1gZEnrWeDmX2LiVMdicb6iLuNG5Y9Hte@dpg-cu197ihu0jms738h30b0-a.oregon-postgres.render.com/cse340for2025"
+            "connectString": "postgresql://cse340database:NSce5xyfd6mL9uBuOPJe3hp9aPjEv71z@dpg-cu3d50hopnds738ik94g-a.oregon-postgres.render.com/cse340database_daiy"
         }
     ]
 }
