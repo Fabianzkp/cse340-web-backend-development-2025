@@ -337,6 +337,21 @@ color: rgba(41, 19, 121, 0.9);
     color: rgba(19, 121, 19, 0.9);
   }
 
+  #vehicle-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem; 
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+  }
+
+  #vehicle-display img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  }
+
   footer {
     margin-left: 3rem;
     color: rgba(41, 19, 121, 0.9); 
