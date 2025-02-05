@@ -1,5 +1,6 @@
 const utilities = require(".")
   const { body, validationResult } = require("express-validator")
+  const accountModel = require("../models/accountModel")
   const validate = {}
 
   /*  **********************************
@@ -69,4 +70,57 @@ validate.checkRegData = async (req, res, next) => {
     next()
   }
   
+
+// valid email is required and cannot already exist in the database
+body("account_email")
+  .trim()
+  .isEmail()
+  .normalizeEmail() // refer to validator.js docs
+  .withMessage("A valid email is required.")
+  .custom(async (account_email) => {
+    const emailExists = await accountModel.checkExistingEmail(account_email)
+    if (emailExists){
+      throw new Error("Email exists. Please log in or use different email")
+    }
+  }),
+
+
+  /* *******************************
+ *  Login Data Validation Rules
+ * ******************************* */
+validate.loginRules = () => {
+    return [
+        body("account_email")
+            .trim()
+            .isEmail()
+            .normalizeEmail()
+            .withMessage("Please enter a valid email address."),
+        body("account_password")
+            .trim()
+            .notEmpty()
+            .isLength({ min: 12 })
+            .withMessage(
+                "Password must be at least 12 characters long and include upper and lowercase letters, a number, and a special character."
+            ),
+    ];
+  };
+  
+  /* ************************************
+  * Check data and return errors or proceed to login
+  * *********************************** */
+  validate.checkLoginData = async (req, res, next) => {
+    let errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        let nav = await utilities.getNav();
+        res.render("account/login", {
+            errors,
+            title: "Login",
+            nav,
+            account_email: req.body.email,
+        });
+        return;
+    }
+    next();
+  }
+
   module.exports = validate
