@@ -16,6 +16,7 @@ const utilities = require("./utilities/")
 // const errorRoute = require("./routes/errorRoute")
 const session = require("express-session")
 const pool = require('./database/')
+const accountRoute = require("./routes/accountRoute")
 
 
 /* ***********************
@@ -62,6 +63,9 @@ app.use("/inv", inventoryRoute)
 
 // Intentional error route
 // app.use("/inv/error", errorRoute)
+
+// Account routes
+app.use("/account", accountRoute)
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {

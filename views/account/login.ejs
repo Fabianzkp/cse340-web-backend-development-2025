@@ -1,0 +1,34 @@
+  <!-- The Content Heading -->
+  <% if (title) { %>
+    <h1><%= title %></h1>
+  <% } %>
+
+  <!-- Flash Message -->
+  <%- messages() %>
+
+  <% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+  <!-- Login Form -->
+  <form action="/account/login" method="POST" class="form" id="loginForm">
+    <label for="account_email">Email:</label><br>
+    <input type="email" id="account_email" name="account_email" placeholder="Enter your email" required autocomplete="on" value="<%= locals.account_email %>"><br>
+    
+    <div class="password-field">
+        <label for="account_password">Password:</label><br>
+        <input type="password" id="account_password" name="account_password" placeholder="Enter your password" required autocomplete="off" minlength="12" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+        title="Password must be at least 12 characters long, contain at least one uppercase letter, one number, and one special character."><br>
+        <span class="passwordButton">Show Password</span>
+      </div>
+    <button type="submit" id="login">Login</button>
+  </form>
+
+  <!-- Registration Link -->
+  <p>No account? <a href="/account/register" id="sign-up">Sign-up.</a></p>
+
+  <script src="/js/script.js" defer></script>
