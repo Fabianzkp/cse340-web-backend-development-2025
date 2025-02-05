@@ -1,0 +1,39 @@
+  <!-- The Content Heading -->
+  <% if (title) { %>
+    <h1><%= title %></h1>
+  <% } else {req. redirect("/")} %>
+
+  <!-- Flash Message -->
+  <%- messages() %>
+
+  <% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+    <!-- Registration Form -->
+<form action="/account/register" method="POST" class="form">
+    <div class="field">
+        <label for="account_firstname">First Name:</label><br>
+        <input type="text" name="account_firstname" id="account_firstname" required autocomplete="on" value="<%= locals.account_firstname %>">
+    </div>  
+    <div class="field">
+        <label for="account_lastname">Last Name:</label><br>
+        <input type="text" id="account_lastname" name="account_lastname" required autocomplete="on" value="<%= locals.account_lastname %>">
+    </div>
+    <div class="field">
+        <label for="account_email">Email:</label><br>
+        <input type="email" id="account_email" name="account_email" required autocomplete="on" value="<%= locals.account_email %>">
+    </div>
+    <div class="field">
+        <label for="account_password" class="register-field">Password:</label><br>
+        <input type="password" id="account_password" name="account_password" required minlength="12" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+        title="Password must be at least 12 characters long, contain at least one uppercase letter, one number, and one special character.">
+        <span class="passwordButton">Show Password</span>
+    </div>
+    <button type="submit" class="register-field">Register</button>
+</form>
+<script src="/js/script.js"></script>
