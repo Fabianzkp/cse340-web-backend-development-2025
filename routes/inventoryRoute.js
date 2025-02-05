@@ -14,4 +14,7 @@ router.get("/detail/:invId", utilities.handleErrors(invController.buildByVehicle
 // Route to cause 500 type error
 router.get("/error", utilities.handleErrors(invController.causeError));
 
+// Route to build vehicle management view
+router.get("/", utilities.handleErrors(invController.buildVehicleManagement))
+
 module.exports = router;

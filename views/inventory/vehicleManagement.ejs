@@ -1,0 +1,20 @@
+<!-- The Content Heading -->
+<% if (title) { %>
+  <h1><%= title %></h1>
+<% } %>
+
+<!-- Flash Message -->
+<%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<ul>
+<li><a href="/inv/addClassification">Add New Classification</a></li>
+<li><a href="/inv/addInventory">Add New Inventory</a></li>
+</ul>

@@ -42,7 +42,9 @@ invCont.buildByVehicleId = async function (req, res, next) {
   })
 }
 
-
+/* ***************************
+ *  intentionally cause an error
+ * ************************** */
 
 invCont.causeError = async function (req, res, next) {
   console.log("Causing an error...");
@@ -54,5 +56,17 @@ invCont.causeError = async function (req, res, next) {
   }
 };
 
+/* ***************************
+ *  build vehicle management view
+ * ************************** */
+
+invCont.buildVehicleManagement = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("./inventory/vehicleManagement", {
+    title: "Vehicles Management",
+    nav,
+    errors: null,
+  })
+}
 
 module.exports = invCont
