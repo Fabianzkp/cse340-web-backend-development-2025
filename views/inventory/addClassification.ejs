@@ -1,0 +1,24 @@
+<!-- The Content Heading -->
+<% if (title) { %>
+    <h1><%= title %></h1>
+  <% } %>
+
+  <!-- Flash Message -->
+  <%- messages() %>
+
+  <% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+
+<p>Field is required. Name should be alphabetical characters only.<br>
+     No spaces or spacial characters.</p>
+<form action="/inv/addClassification" method="POST" class="form">
+    <label for = "classification_name"> Classification Name</label><br>
+    <input type="text" name="classification_name" id="classification_name" placeholder="Enter Classification" required autocomplete="on" pattern="^[a-zA-Z]+$" value="<%= locals.classification_name %>"><br> 
+    <button type="submit" id="submit">Add Classification</button>
+</form>

@@ -61,6 +61,7 @@ Util.buildClassificationGrid = async function(data){
 
 
 // Build the vehicleDetail view //
+
 Util.buildVehicleView = async function (vehicleData) {
   let drill
   if(vehicleData.length > 0) {
@@ -85,6 +86,26 @@ Util.buildVehicleView = async function (vehicleData) {
   }
   console.log(drill)
   return drill
+  }
+
+
+  Util.buildClassificationList = async function (classification_id = null) {
+    let data = await invModel.getClassifications()
+    let classificationList =
+      '<select name="classification_id" id="classificationList" required>'
+    classificationList += "<option value=''>Choose a Classification</option>"
+    data.rows.forEach((row) => {
+      classificationList += '<option value="' + row.classification_id + '"'
+      if (
+        classification_id != null &&
+        row.classification_id == classification_id
+      ) {
+        classificationList += " selected "
+      }
+      classificationList += ">" + row.classification_name + "</option>"
+    })
+    classificationList += "</select>"
+    return classificationList
   }
 
 
