@@ -46,6 +46,8 @@ app.use(function(req, res, next){
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
+// Serve static files from the "public" folder
+app.use(express.static('public'));
 
 /* ***********************
  View Engine and Templates
