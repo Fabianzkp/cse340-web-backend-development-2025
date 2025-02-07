@@ -18,6 +18,7 @@ const session = require("express-session")
 const pool = require('./database/')
 const accountRoute = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
 
 
 /* ***********************
@@ -48,6 +49,12 @@ app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-
 
 // Serve static files from the "public" folder
 app.use(express.static('public'));
+
+// For parsing cookies
+app.use(cookieParser())
+
+//middleware to check for valid JWT token
+app.use(utilities.checkJWTToken)
 
 /* ***********************
  View Engine and Templates

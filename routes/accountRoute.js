@@ -29,7 +29,9 @@ router.post(
 );
 
 
-
+// Route to display the account management view
+router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildAccountManagement))
+  
 
 
 module.exports = router;
