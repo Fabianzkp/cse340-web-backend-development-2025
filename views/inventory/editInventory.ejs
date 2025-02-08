@@ -16,10 +16,10 @@
   <% } %>
   
 <p>PLEASE NOTE: ALL FIELDS ARE REQUIRED</p>
-<form action="/inv/addInventory" method="POST" class="form">
+<form action="/inv/update" method="POST" class="form">
    <label for="classificationList">Classification</label><br>
-   
-<%- classificationList %> <br>
+
+<%- classificationSelect %> <br>
 
     <label for="inv_make">Make</label><br>
     <input type="text" id="inv_make" name="inv_make" placeholder="Enter Make" required value="<%= locals.inv_make %>"><br>
@@ -48,6 +48,6 @@
     <label for="inv_color">Color</label><br>
     <input type="text" id="inv_color" name="inv_color" placeholder="Enter Color" required value="<%= locals.inv_color %>"><br>
       
-    <button type="submit" id="submit">Add Inventory</button>
+    <button type="submit" id="submit">Update Vehicle</button>
 </form>
       

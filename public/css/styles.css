@@ -230,6 +230,76 @@ nav ul li a{
 }
 
 
+/* Style for the Inventory Table */
+#inventoryDisplay {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Table Header */
+#inventoryDisplay thead {
+  background-color: rgba(19, 121, 19, 0.9);
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+#inventoryDisplay th, 
+#inventoryDisplay td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+/* Table Rows */
+#inventoryDisplay tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Zebra striping */
+}
+
+#inventoryDisplay tbody tr:hover {
+  background-color: rgba(229, 215, 136, 0.9); 
+  transition: 0.3s;
+}
+
+/* Modify Link (Blue) */
+#inventoryDisplay a[href*="/edit/"] {
+  color: #007bff; /* Blue */
+  font-weight: bold;
+  padding: 6px 12px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+#inventoryDisplay a[href*="/edit/"]:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Delete Link (Red) */
+#inventoryDisplay a[href*="/delete/"] {
+  color: #dc3545; /* Red */
+  font-weight: bold;
+  padding: 6px 12px;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+#inventoryDisplay a[href*="/delete/"]:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+
+#inventoryDisplay a:hover {
+  color: #ff5733;
+}
+
+
+
 footer {
 color: rgba(41, 19, 121, 0.9); 
 }

@@ -34,7 +34,7 @@ async function getInventoryByClassificationId(classification_id) {
       const sql = await pool.query('SELECT * FROM public.inventory WHERE inv_id = $1',
       [inv_id]
       )
-      return sql.rows
+      return sql.rows[0]
      } catch (error) {
       console.error("getVehicleDetailById error " + error)
     }
