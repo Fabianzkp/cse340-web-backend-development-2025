@@ -147,4 +147,39 @@ validate.addInventoryRules = () => {
     next();
   };
 
+
+
+/* ***************************
+  * Check edit/update Inventory Validation and Return Errors to the edit view or Continue
+  * *************************** */
+validate.checkUpdateData = async (req, res, next) => {
+  const { inv_id, classification_id, inv_make, inv_model, inv_year, inv_description, inv_price, inv_image, inv_thumbnail, inv_miles, inv_color } = req.body;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav();
+    const classifications = await invModel.getClassifications(); // Get classifications
+    const classificationList = await utilities.buildClassificationList(classification_id); // Pass classification_id
+    res.render("inventory/editInventory", {
+      errors,
+      title: "Edit Inventory",
+      nav,
+      classifications: classifications.rows,
+      classificationList, 
+      inv_id,
+      classification_id,
+      inv_make,
+      inv_model,
+      inv_year,
+      inv_description,
+      inv_price,
+      inv_image,
+      inv_thumbnail,
+      inv_miles,
+      inv_color,
+    });
+    return;
+  }
+  next();
+};
+
 module.exports = validate;
