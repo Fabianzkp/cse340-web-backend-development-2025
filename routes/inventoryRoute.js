@@ -39,4 +39,10 @@ router.get("/edit/:inv_id", utilities.handleErrors(invController.buildEditInvent
 // Handle the form submission for editing/updating inventory 
 router.post("/update/:inv_id", datavalidate.addInventoryRules(), datavalidate.checkUpdateData, utilities.handleErrors(invController.updateInventory))
 
+// Display the delete inventory and confirmation
+router.get("/delete/:inv_id", utilities.handleErrors(invController.buildDeleteInventory))
+
+// Handle the form submission for deleting inventory
+router.post("/delete/:inv_id", utilities.handleErrors(invController.deleteInventory))   
+
 module.exports = router;
