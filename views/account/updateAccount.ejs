@@ -1,0 +1,54 @@
+<!-- The Content Heading -->
+<% if (title) { %>
+  <h1><%= title %></h1>
+<% } %>
+
+<!-- Flash Message -->
+<%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<!-- Account Update Form -->
+<form action="/account/update" method="post" class="form">
+  <div class="update-field">
+    <label for="firstname">First Name:</label><br>
+    <input type="text" id="firstname" name="account_firstname" value="<%= accountData.account_firstname %>" required><br>
+  </div>
+
+  <div class="update-field">
+    <label for="lastname">Last Name:</label><br>
+    <input type="text" id="lastname" name="account_lastname" value="<%= accountData.account_lastname %>" required><br>
+  </div>
+
+  <div class="update-field">
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="account_email" value="<%= accountData.account_email %>" required><br>
+  </div>  
+
+  <input type="hidden" name="account_id" value="<%= accountData.account_id %>"><br>
+  
+  <input type="submit" value="Update Account">
+</form>
+
+<!-- Change Password Form -->
+<form action="/account/change-password" method="post" class="form">
+  <div class="field">
+  <label for="password">New Password:</label><br>
+  <input type="password" id="password" name="password" minlength="12" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required
+    title="Password must be at least 12 characters long, contain at least one uppercase letter, one number, and one special character.">
+      <span class="passwordButton-update">Show Password</span>
+  <input type="hidden" name="account_id" value="<%= accountData.account_id %>">
+  </div>
+  <input type="submit" value="Change Password">
+</form>
+
+<!-- Link to Account Management Page -->
+<p><a href="/account">Back to Account Management</a></p>
+
+<script src="/js/script.js"></script>

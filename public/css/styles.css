@@ -201,14 +201,17 @@ nav ul li a{
 
 #email, #password, #account_firstname,
 #account_lastname, #account_email,
-#account_password {
+#account_password, #firstname, #lastname,
+#inv_make, #inv_model, #inv_description,
+#inv_image, #inv_thumbnail, #inv_price,
+#inv_miles, #inv_color, #inv_year{
   color: black;
   background-color: white;
   width: 250px;
   height: 40px;
 }
 
-.password-field, .field{
+.password-field, .field, .update-field {
   margin: .5rem 0;
 }
 
@@ -235,6 +238,7 @@ nav ul li a{
   width: 80%;
   border-collapse: collapse;
   margin-top: 20px;
+  margin: 0 auto;
 }
 
 /* Table Header */
@@ -261,7 +265,7 @@ nav ul li a{
   transition: 0.3s;
 }
 
-/* Modify Link (Blue) */
+
 #inventoryDisplay a[href*="/edit/"] {
   color: #007bff; /* Blue */
   font-weight: bold;
@@ -277,7 +281,7 @@ nav ul li a{
   color: white;
 }
 
-/* Delete Link (Red) */
+
 #inventoryDisplay a[href*="/delete/"] {
   color: #dc3545; /* Red */
   font-weight: bold;
@@ -298,10 +302,49 @@ nav ul li a{
   color: #ff5733;
 }
 
+.special {
+  background-color: rgba(229, 215, 136, 0.9); 
+  color: rgba(19, 121, 19, 0.9);
+  text-align: center;
+  padding-top: 1.3rem;
+  padding-bottom: 1.3rem;
+  width: 80%;
+  margin: 0 auto;
+}
 
+.special-heading {
+  text-align: center;
+}
+
+.special h3 {
+  font-size: 1.5rem;
+} 
+.special h2 {
+  font-size: 1.8rem;
+}
+.special p {
+  font-size: 1.2rem;
+}
+
+.ClassificationList {
+  width: 100%; /* Adjust the width as needed */
+  height: 4rem; /* Adjust the height as needed */
+  font-size: 1.2rem; /* Adjust the font size as needed */
+}
+
+#tools .log {
+  color:#dc3545;
+  font-size: 1.5rem;
+}
+
+#tools .account {
+  color: #007bff;
+  font-size: 1.5rem;
+}
 
 footer {
-color: rgba(41, 19, 121, 0.9); 
+color: rgba(41, 19, 121, 0.9);
+text-align: center; 
 }
 
 

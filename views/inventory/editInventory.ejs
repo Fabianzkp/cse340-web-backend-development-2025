@@ -20,34 +20,51 @@
    <label for="classificationList">Classification</label><br>
 
 <%- classificationSelect %> <br>
-
+  <div class="edit-field">
     <label for="inv_make">Make</label><br>
     <input type="text" id="inv_make" name="inv_make" placeholder="Enter Make" required value="<%= locals.inv_make %>"><br>
-      
+  </div>
+
+  <div class="edit-field">
     <label for="inv_model">Model</label><br>
     <input type="text" id="inv_model" name="inv_model" placeholder="Enter Model" required value="<%= locals.inv_model %>"><br>
-      
+  </div>
+  
+  <div class="edit-field">
     <label for="inv_year">Year</label><br>
     <input type="number" id="inv_year" name="inv_year" placeholder="Enter Year" required value="<%= locals.inv_year %>"><br>
-      
+  </div>
+  
+  <div class="edit-field">
     <label for="inv_description">Description</label><br>
     <textarea id="inv_description" name="inv_description" placeholder="Enter Description" required><%= locals.inv_description %></textarea><br>
-      
+  </div>
+  
+  <div class="edit-field">
     <label for="inv_price">Price</label><br>
     <input type="number" id="inv_price" name="inv_price" placeholder="Enter Price" required value="<%= locals.inv_price %>"><br>
-      
+  </div>
+  
+  <div class="edit-field">
     <label for="inv_image">Image</label><br>
     <input type="text" id="inv_image" name="inv_image" placeholder="Enter Image Path" required value="<%= locals.inv_image || '/images/vehicles/no-image.png' %>"><br>
+  </div>
 
+  <div class="edit-field">
     <label for="inv_thumbnail">Thumbnail</label><br>
     <input type="text" id="inv_thumbnail" name="inv_thumbnail" placeholder="Enter Thumbnail Path" required value="<%= locals.inv_thumbnail || '/images/vehicles/no-image-tn.png' %>"><br>
+  </div>
 
+  <div class="edit-field">
     <label for="inv_miles">Miles</label><br>
     <input type="number" id="inv_miles" name="inv_miles" placeholder="Enter Miles" required value="<%= locals.inv_miles %>"><br>
-      
+  </div>
+  
+  <div class="edit-field">
     <label for="inv_color">Color</label><br>
     <input type="text" id="inv_color" name="inv_color" placeholder="Enter Color" required value="<%= locals.inv_color %>"><br>
-      
+  </div>
+     
     <button type="submit" id="submit" disabled>Update Vehicle</button>
 
     <input type="hidden" name="inv_id"

@@ -25,22 +25,23 @@ invCont.buildByClassificationId = async function (req, res, next) {
  * ************************** */
 
 invCont.buildByVehicleId = async function (req, res, next) {
-  const inv_id = req.params.invId
-  const vehicleData = await invModel.getVehicleByInvId(inv_id)
+  const inv_id = req.params.invId;
+  const vehicleData = await invModel.getVehicleByInvId(inv_id);
   // To ensure vehicleData is not empty
-  if (!vehicleData || vehicleData.length === 0) {
-    throw new Error("Vehicle not found.")
+  if (!vehicleData) {
+    req.flash("notice", "Vehicle not found.");
+    return res.redirect("/inv");
   }
-  const drill = await utilities.buildVehicleView(vehicleData)
-  let nav = await utilities.getNav()
-  const vehicleName = `${vehicleData[0].inv_make} ${vehicleData[0].inv_model}`
+  const drill = await utilities.buildVehicleView([vehicleData]); // Pass as an array
+  let nav = await utilities.getNav();
+  const vehicleName = `${vehicleData.inv_make} ${vehicleData.inv_model}`;
   res.render("./inventory/vehicle", {
     title: vehicleName + " vehicles",
     nav,
     drill,
     errors: null,
-  })
-}
+  });
+};
 
 /* ***************************
  *  intentionally cause an error

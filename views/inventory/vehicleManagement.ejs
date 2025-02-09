@@ -1,6 +1,6 @@
 <!-- The Content Heading -->
 <% if (title) { %>
-  <h1><%= title %></h1>
+  <h1 class="special-heading"><%= title %></h1>
 <% } %>
 
 <!-- Flash Message -->
@@ -13,17 +13,18 @@
 <%  }) %>
  </ul>
 <% } %>
-
+<div class="special">
 <ul>
 <li><a href="/inv/addClassification">Add New Classification</a></li>
 <li><a href="/inv/addInventory">Add New Inventory</a></li>
 </ul>
 
+
 <h2>Manage Inventory</h2>
 <p>Select a classification from the list</p>
 
 <%- classificationSelect %>
-
+</div>
 <table id="inventoryDisplay"></table>
 
 <noscript>JavaScript must be enabled to use this page.</noscript>

@@ -32,4 +32,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Update account password toggle
+    const updatePasswordButton = document.querySelector(".passwordButton-update");
+    if (updatePasswordButton) {
+        updatePasswordButton.addEventListener("click", function () {
+            const passwordInput = document.getElementById("password");
+            const currentType = passwordInput.getAttribute("type");
+            if (currentType === "password") {
+                passwordInput.setAttribute("type", "text");
+                updatePasswordButton.innerHTML = "Hide Password";
+            } else {
+                passwordInput.setAttribute("type", "password");
+                updatePasswordButton.innerHTML = "Show Password";
+            }
+        });
+    }
+
 });
