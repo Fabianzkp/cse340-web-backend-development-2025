@@ -334,12 +334,12 @@ nav ul li a{
 
 #tools .log {
   color:#dc3545;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 #tools .account {
   color: #007bff;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 footer {
@@ -493,6 +493,16 @@ text-align: center;
   width: 100%;
   max-width: 500px;
   height: auto;
+  }
+
+  #tools .log {
+    color:#dc3545;
+    font-size: 1.5rem;
+  }
+  
+  #tools .account {
+    color: #007bff;
+    font-size: 1.5rem;
   }
 
   footer {
