@@ -5,7 +5,6 @@ const invController = require("../controllers/invController")
 const utilities = require("../utilities/")
 const datavalidate = require('../utilities/inventory-validation');
 
-
 // Route to build inventory by classification view
 router.get("/type/:classificationId", utilities.handleErrors(invController.buildByClassificationId));
 
@@ -16,7 +15,7 @@ router.get("/detail/:invId", utilities.handleErrors(invController.buildByVehicle
 router.get("/error", utilities.handleErrors(invController.causeError));
 
 // Route to build vehicle management view
-router.get("/", utilities.handleErrors(invController.buildVehicleManagement))
+router.get("/", utilities.checkLogin, utilities.handleErrors(invController.buildVehicleManagement))
 
 // Route to build add classification view
 router.get("/addClassification", utilities.handleErrors(invController.buildAddClassification))
