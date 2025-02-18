@@ -1,0 +1,54 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } %>
+
+<%- messages() %>
+
+<table class="maintenanceT">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% records.forEach(record => { %>
+            <tr>
+                <td><%= new Date(record.maintenance_date).toLocaleDateString() %></td>
+                <td><%= record.description %></td>
+                <td>$<%= new Intl.NumberFormat('en-US').format(record.cost) %></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+<% if (errors) { %>
+    <ul class="notice">
+      <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+
+<!-- Form to add new maintenance record -->
+<h2>Add Maintenance Record</h2>
+<form action="/inv/maintenance/add" method="POST" class="form">
+    <input type="hidden" name="inv_id" value="<%= inv_id %>">
+    <div class="field">
+        <label for="maintenance_date">Date:</label><br>
+        <input type="date" id="maintenance_date" name="maintenance_date" required value="<%= locals.maintenance_date %>"><br>
+    </div>
+    <div class="field">
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" required value="<%= locals.description %>"></textarea><br>
+    </div>
+    <div class="field">
+        <label for="cost">Cost:</label><br>
+        <input type="number" id="cost" name="cost" step="0.01" required title="Must be a positive number" value="<%= locals.cost %>"><br>
+    </div>
+    <button type="submit">Add Record</button>
+</form>
+
+<a href="/inv/detail/<%= inv_id %>" class="link-back">Back to Vehicle Details</a>

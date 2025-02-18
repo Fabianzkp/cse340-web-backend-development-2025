@@ -342,10 +342,66 @@ nav ul li a{
   font-size: 1rem;
 }
 
-footer {
-color: rgba(41, 19, 121, 0.9);
-text-align: center; 
+
+.maintenanceT {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;  
+  
 }
+
+/* Table Header */
+.maintenanceT thead {
+  background-color: rgba(19, 121, 19, 0.9);
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.maintenanceT th, 
+.maintenanceT td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+/* Table Rows */
+.maintenanceT tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Zebra striping */
+}
+
+.maintenanceT tbody tr:hover {
+  background-color: rgba(229, 215, 136, 0.9); 
+  transition: 0.3s;
+}
+
+
+.link-back {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 10px 20px;
+  background-color:rgba(19, 121, 19, 0.9); 
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.link-back:hover {
+  background-color: #dc3545;
+}
+
+#maintenance_date, #description, #cost{
+  color: black;
+  background-color: white;
+  width: 250px;
+  height: 40px;
+}
+
+footer {
+  color: rgba(41, 19, 121, 0.9);
+  text-align: center; 
+  }
 
 
 @media (min-width: 750px) {

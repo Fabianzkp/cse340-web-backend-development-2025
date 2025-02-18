@@ -39,6 +39,7 @@ invCont.buildByVehicleId = async function (req, res, next) {
     title: vehicleName + " vehicles",
     nav,
     drill,
+    vehicle: vehicleData,
     errors: null,
   });
 };

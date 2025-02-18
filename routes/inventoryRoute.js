@@ -4,6 +4,8 @@ const router = new express.Router()
 const invController = require("../controllers/invController")
 const utilities = require("../utilities/")
 const datavalidate = require('../utilities/inventory-validation');
+const maintenanceController = require("../controllers/maintenanceController");
+const maintenanceValidate = require("../utilities/maintenance-validation");
 
 // Route to build inventory by classification view
 router.get("/type/:classificationId", utilities.handleErrors(invController.buildByClassificationId));
@@ -43,5 +45,13 @@ router.get("/delete/:inv_id", utilities.handleErrors(invController.buildDeleteIn
 
 // Handle the form submission for deleting inventory
 router.post("/delete/:inv_id", utilities.handleErrors(invController.deleteInventory))   
+
+
+// Route to view maintenance records
+router.get("/maintenance/:inv_id", utilities.checkLogin, utilities.handleErrors(maintenanceController.viewMaintenanceRecords));
+
+// Route to add maintenance record
+router.post("/maintenance/add", utilities.checkLogin, maintenanceValidate.maintenanceRules(), 
+maintenanceValidate.checkMaintenanceData, utilities.handleErrors(maintenanceController.addMaintenanceRecord));
 
 module.exports = router;
